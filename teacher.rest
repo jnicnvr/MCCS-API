@@ -1,0 +1,34 @@
+# index
+GET http://localhost:5000/api/teacher
+
+# show
+###
+GET http://localhost:5000/api/teacher/120956
+
+# update
+###
+PATCH  http://localhost:5000/api/teacher/120956
+Content-Type: application/json
+
+{
+    "TID": "120956",
+    "Fname": "Frank Kivens",
+    "Lname": "Ablao",
+    "Mname": ""
+}
+
+# delete
+###
+DELETE  http://localhost:5000/api/teacher/120956
+
+# insert
+###
+POST  http://localhost:5000/api/teacher
+Content-Type: application/json
+ 
+{
+    "TID": "120956",
+    "Fname": "Frank Kiven",
+    "Lname": "Ablao",
+    "Mname": ""
+}

@@ -1,0 +1,15 @@
+# index
+GET http://localhost:5000/api/user_logs
+
+# show
+###
+GET http://localhost:5000/api/user_logs/Konics
+
+# insert
+###
+POST  http://localhost:5000/api/user_logs
+Content-Type: application/json
+ 
+{
+    "project_user": "Konics"
+}

@@ -1,0 +1,8 @@
+# index
+GET http://localhost:5000/api/evaluation_restriction
+
+# show
+###
+GET http://localhost:5000/api/evaluation_restriction/Brian Dioneda L.
+
+

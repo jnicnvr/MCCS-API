@@ -1,0 +1,34 @@
+# index
+GET http://localhost:5000/api/school_year
+
+# show
+###
+GET http://localhost:5000/api/school_year/2020-2021
+
+# update
+###
+PATCH  http://localhost:5000/api/school_year/2020-2021
+Content-Type: application/json
+
+{
+    "year": "2020-2021",
+    "semester": "1",
+    "status": "Starting",
+    "isActive": "Yes"
+}
+
+# delete
+###
+DELETE  http://localhost:5000/api/school_year/2020-2021
+
+# insert
+###
+POST  http://localhost:5000/api/school_year
+Content-Type: application/json
+
+{
+    "year": "2020-2021", 
+    "semester": "1",
+    "status": "Starting",
+    "isActive": "Yes"
+}

@@ -1,0 +1,17 @@
+# index
+GET http://localhost:5000/api/admin_logs
+
+# show
+###
+GET http://localhost:5000/api/admin_logs/admin
+
+# insert
+###
+POST  http://localhost:5000/api/admin_logs
+Content-Type: application/json
+ 
+{
+    "name": "admin",
+    "activity": "Login",
+    "user_level": "admin"
+}

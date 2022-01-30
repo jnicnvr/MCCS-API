@@ -1,0 +1,45 @@
+GET http://localhost:5000/api/user
+###
+GET http://localhost:5000/api/user/1
+
+###
+POST http://localhost:5000/api/user
+Content-Type: application/json
+
+
+{
+  "name": "Nicossj",
+  "password": "1234567890",
+  "email":"niconovero@gmail.com"
+}
+
+###
+
+#authentication
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+"email": "niconovero111222@gmail.com",
+"password": "niconovero111222@gmail.com"
+}
+
+###
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Nico Konics",
+  "email":"niconovero1@gmail.com",
+  "password": "niconovero1"
+}
+
+###
+
+GET http://localhost:5000/api/user
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTYsImlhdCI6MTYzMTA4MTAwNH0.VPEz6YcTMfK792FjOmLyKacbP6zHSKONXYPx2hyv6jk
+
+
+
+
