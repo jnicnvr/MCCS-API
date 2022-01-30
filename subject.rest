@@ -1,0 +1,32 @@
+# index
+GET http://localhost:5000/api/subject
+
+# show
+###
+GET http://localhost:5000/api/subject/NC101
+
+# update
+###
+PATCH  http://localhost:5000/api/subject/NC101
+Content-Type: application/json
+
+{   
+    "code": "NC101",
+    "subject": "Networks and Communications",
+    "description": "NC101"
+}
+
+# delete
+###
+DELETE  http://localhost:5000/api/subject/NC101
+
+# insert
+###
+POST  http://localhost:5000/api/subject
+Content-Type: application/json
+ 
+{   
+    "code": "NC101",
+    "subject": "Networks and Communication",
+    "description": "Networks and Communication"
+}

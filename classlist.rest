@@ -1,0 +1,34 @@
+# index
+GET http://localhost:5000/api/class_list
+
+# show
+###
+GET http://localhost:5000/api/class_list/BSCS4A
+
+# update
+###
+PATCH  http://localhost:5000/api/class_list/BSCS4A
+Content-Type: application/json
+
+{     
+    "_class": "BSCS4A",
+    "curriculum": "BSCS",
+    "year_level": 4,
+    "section": "B"
+}
+
+# delete
+###
+DELETE  http://localhost:5000/api/class_list/BSCS4A
+
+# insert
+###
+POST  http://localhost:5000/api/class_list
+Content-Type: application/json
+ 
+{     
+    "_class": "BSCS4B",
+    "curriculum": "BSCS",
+    "year_level": 4,
+    "section": "B"
+}

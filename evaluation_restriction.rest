@@ -1,0 +1,20 @@
+# index
+GET http://localhost:5000/api/evaluation_restriction
+
+# show
+###
+GET http://localhost:5000/api/evaluation_restriction/Brian Dioneda L.
+
+
+#insert
+###
+POST http://localhost:5000/api/evaluation_restriction
+Content-Type: application/json
+
+{
+    "name": "Frank Kiven Ablao",
+    "_class": "BSCS4A",
+    "code": "NC101",
+    "year": "2020-2021",
+    "semester": "1"
+}

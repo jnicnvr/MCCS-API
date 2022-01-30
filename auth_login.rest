@@ -1,0 +1,28 @@
+
+#authentication
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "150885",
+    "password": "150885"
+}
+
+###
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "SID": "150885",
+    "Fname":"Konics",
+    "Lname": "NicsKo",
+    "Age": "23",
+    "Sex": "M",
+    "username": "150885",
+    "password": "150885",
+    "curriculum":"BSCS",
+    "year_level":"4",
+    "section":"A"
+}
+
+
