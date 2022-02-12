@@ -5,6 +5,9 @@ const userLogsValidation = (data) => {
         project_user: Joi.string()
             .min(3)
             .required(),
+        activity: Joi.string()
+            .min(3)
+            .required(),
     })
     return schema.validate(data)
 }

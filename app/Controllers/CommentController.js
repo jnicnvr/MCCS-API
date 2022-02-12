@@ -16,9 +16,7 @@ module.exports = {
                     message: "Database connection errror"
                 });
             }
-            return res.status(200).json({
-                data: results
-            });
+            return res.status(200).json({ success: true });
         });
     },
     index: (req, res) => {
@@ -44,14 +42,12 @@ module.exports = {
                     message: "Record not Found"
                 });
             }
-            return res.json({
-                data: results
-            });
+            return res.json(results);
         });
     },
     update: (req, res) => {
         const body = req.body;
-        const id = req.params.id;       
+        const id = req.params.id;
         update(id, body, (err, results) => {
             if (err) {
                 console.log(err);

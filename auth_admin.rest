@@ -1,0 +1,34 @@
+
+#authentication
+POST http://45.76.152.7:8080/api/auth/login_admin
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+#authentication
+POST http://45.76.152.7:8080/api/auth/login_admin
+Content-Type: application/json
+
+{
+    "username": "150887",
+    "password": "150887"
+}
+### 45.76.152.7
+###
+POST http://localhost:5000/api/auth/register_admin
+Content-Type: application/json
+
+{
+    "Fname":"Kanic",
+    "Lname": "NicsK",
+    "username": "150887",
+    "password": "150887",
+    "admin_id": "150887",
+    "position": "admin"
+}
+
+

@@ -2,7 +2,13 @@ const pool = require('../../config/database')
 
 module.exports = {
     create: (data, callback) => {
-        let _query = `INSERT INTO students(SID, Fname, Lname, Age, Sex, Course, class_id, username, password) VALUES(?,?,?,?,?,?,?,?,?)`
+        // let _query = `INSERT INTO students(SID, Fname, Lname, Age, Sex, Course, class_id, username, password) VALUES(?,?,?,?,?,?,?,?,?)`
+        let _query = `INSERT INTO students(SID, Fname, Lname, Age, Sex, username, password, class_id) 
+        VALUES (?, ?, ?, ?, ?, ?, ?,
+            (SELECT id FROM classes 
+                WHERE curriculum=? AND 
+                year_level=? AND 
+                section=?))`
         pool.query(_query,
             [
                 data.SID,
@@ -10,8 +16,9 @@ module.exports = {
                 data.Lname,
                 data.Age,
                 data.Sex,
-                data.Course,
-                data.class_id,
+                data.curriculum,
+                data.year_level,
+                data.section,
                 data.username,
                 data.password,               
             ],
@@ -24,7 +31,8 @@ module.exports = {
         )
     },
     index: callBack => {
-        let _query = `SELECT SID, Fname, Lname, Age, Sex, Course, class_id, username, password, logs, created_at, updated_at FROM students`
+        let _query = `SELECT s.SID, CONCAT(Fname, Lname) AS student_name, s.Age, s.Sex, c._class, s.username, s.password, DATE_FORMAT(s.created_at, '%W %M %e %Y') AS created_at FROM students AS s 
+        JOIN classes AS c ON s.class_id = c.id`
         pool.query(_query,
             (error, results, fields) => {
                 if (error) {
@@ -35,7 +43,9 @@ module.exports = {
         );
     },
     show: (id, callBack) => {
-        let _query = `SELECT SID, Fname, Lname, Age, Sex, Course, class_id, username, password, logs, created_at, updated_at FROM students WHERE SID = ?`
+        let _query = `SELECT s.SID, CONCAT(Fname, Lname) AS student_name, s.Age, s.Sex, c._class, s.username, s.password, DATE_FORMAT(s.created_at, '%W %M %e %Y') AS created_at FROM students AS s 
+        JOIN classes AS c ON s.class_id = c.id  
+        WHERE SID = ?`
         pool.query(_query,
             [id],
             (error, results, fields) => {

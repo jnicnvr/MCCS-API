@@ -7,13 +7,23 @@ GET http://localhost:5000/api/subject/NC101
 
 # update
 ###
-PATCH  http://localhost:5000/api/subject/NC101
+PATCH  http://45.76.152.7:8080/api/subject/PHIL102
 Content-Type: application/json
 
 {   
-    "code": "NC101",
-    "subject": "Networks and Communications",
-    "description": "NC101"
+    "code": "PHIL102",
+    "subject": "Philosophy 102",
+    "description": "Introduction to Philosophy"
+}
+
+###
+PUT  http://localhost:5000/api/subject/PHIL102
+Content-Type: application/json
+
+{   
+    "code": "PHIL102",
+    "subject": "Philosophy 102",
+    "description": "Introduction to Philosophy"
 }
 
 # delete
@@ -22,7 +32,7 @@ DELETE  http://localhost:5000/api/subject/NC101
 
 # insert
 ###
-POST  http://localhost:5000/api/subject
+POST  http://45.76.152.7:8080/api/subject
 Content-Type: application/json
  
 {   

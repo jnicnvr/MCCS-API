@@ -25,13 +25,31 @@ POST  http://localhost:5000/api/student
 Content-Type: application/json
 
 {
-  "SID": "186969",
-  "Fname":"John Nico",
-  "Lname": "Novero",
-  "Age": "23",
+  "SID": "122337",
+  "Fname":"Conessz",
+  "Lname": "Nikssz",
+  "Age": "32",
   "Sex":"M",
-  "Course": "BSIT",
-  "class_id": "1",
-  "username": "150884",
-  "password":"150884"
+  "curriculum": "BSCS", 
+  "year_level": "1", 
+  "section": "A",
+  "username": "15-0884",
+  "password":"15-0884"
+}
+
+###
+POST  http://45.76.152.7:8080/api/student
+Content-Type: application/json
+
+{
+  "SID": "122333",
+  "Fname":"Cone",
+  "Lname": "Nik",
+  "Age": "32",
+  "Sex":"M",
+  "curriculum": "BSCS", 
+  "year_level": "1", 
+  "section": "A",
+  "username": "15-0884",
+  "password":"15-0884"
 }

@@ -1,9 +1,14 @@
 # index
 GET http://localhost:5000/api/notification
 
+
+# not_yet_evaluated
+###
+GET http://localhost:5000/api/not_yet_evaluated
+
 # show
 ###
-GET http://localhost:5000/api/notification/180809
+GET http://localhost:5000/api/notification/180577
 
 # insert
 ###
@@ -16,4 +21,14 @@ Content-Type: application/json
     "sy_id": "1",
     "class_id": "1",
     "subject_id": "8"
+}
+
+###
+POST http://localhost:5000/api/evaluating_faculty
+Content-Type: application/json
+
+{
+    "SID": "181036",
+    "sy_id": "1",
+    "class_id": "1"
 }

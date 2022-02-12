@@ -18,7 +18,7 @@ module.exports = {
         )
     },
     index: callBack => {
-        let _query = `SELECT id, name, activity, user_level, created_at, updated_at FROM user_logs`
+        let _query = `SELECT id, name, activity, user_level, DATE_FORMAT(created_at, '%W %M %e %Y') AS created_at, updated_at FROM user_logs`
         pool.query(_query,
             (error, results, fields) => {
                 if (error) {

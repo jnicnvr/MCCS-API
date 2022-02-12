@@ -37,7 +37,20 @@ module.exports = {
                 if (error) {
                     callBack(error);
                 }              
-                return callBack(null, results[0]);
+                return callBack(null, results);
+            }
+        );
+    },
+    show_status: (id, callBack) => {
+        console.log(id)
+        let _query = `SELECT id, year, semester, status, isActive, created_at, updated_at FROM school_year WHERE status=?`
+        pool.query(_query,
+            [id],
+            (error, results, fields) => {
+                if (error) {
+                    callBack(error);
+                }              
+                return callBack(null, results);
             }
         );
     },

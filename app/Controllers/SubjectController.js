@@ -27,9 +27,7 @@ module.exports = {
                 console.log(err);
                 return;
             }
-            return res.json({
-                data: results
-            });
+            return res.json(results);
         });
     },
     show: (req, res) => {
@@ -51,7 +49,7 @@ module.exports = {
     },
     update: (req, res) => {
         const body = req.body;
-        const id = req.params.id;       
+        const id = req.params.id;
         update(id, body, (err, results) => {
             if (err) {
                 console.log(err);

@@ -6,6 +6,7 @@ router.get('/subject', index)
 router.post('/subject', create)
 router.get('/subject/:id', show)
 router.patch('/subject/:id', update)
+router.put('/subject/:id', update)
 router.delete('/subject/:id', destroy)
 
 module.exports = router;

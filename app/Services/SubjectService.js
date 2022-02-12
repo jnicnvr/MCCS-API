@@ -24,6 +24,7 @@ module.exports = {
                 if (error) {
                     callBack(error);
                 }
+                
                 return callBack(null, results);
             }
         );

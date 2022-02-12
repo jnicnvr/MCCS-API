@@ -5,6 +5,10 @@ GET http://localhost:5000/api/school_year
 ###
 GET http://localhost:5000/api/school_year/2020-2021
 
+# show_status
+###
+GET http://45.76.152.7:8080/api/school_year_status/Starting
+
 # update
 ###
 PATCH  http://localhost:5000/api/school_year/2020-2021
@@ -32,3 +36,4 @@ Content-Type: application/json
     "status": "Starting",
     "isActive": "Yes"
 }
+

@@ -1,4 +1,4 @@
-const { create, index, show, update, destroy } = require('../Services/SchoolYearService')
+const { create, index, show, update, destroy, show_status } = require('../Services/SchoolYearService')
 const { schoolYearValidation } = require('../Validations/SchoolYearValidation')
 
 module.exports = {
@@ -47,6 +47,23 @@ module.exports = {
             return res.json({
                 data: results
             });
+        });
+    },
+    show_status: (req, res) => {
+        const id = req.params.id;
+        console.log('show_status',id)
+        show_status(id, (err, [results]) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            if (!results) {
+                return res.json({
+                    message: "Record not Found"
+                });
+            }
+            results.success = true;
+            return res.json(results);
         });
     },
     update: (req, res) => {

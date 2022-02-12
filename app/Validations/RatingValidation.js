@@ -53,6 +53,8 @@ const ratingValidation = (data) => {
         rating10: Joi.number()
             .min(1)
             .required(),
+        end_at: Joi.string()            
+            .required(),
 
     })
     return schema.validate(data)

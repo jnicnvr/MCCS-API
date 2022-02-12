@@ -1,5 +1,15 @@
 
 #authentication
+POST http://45.76.152.7:8080/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "156969",
+    "password": "156969"
+}
+
+###
+#authentication
 POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
@@ -13,13 +23,13 @@ POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-    "SID": "150885",
-    "Fname":"Konics",
-    "Lname": "NicsKo",
+    "SID": "150886",
+    "Fname":"Kanics",
+    "Lname": "NicsKa",
     "Age": "23",
     "Sex": "M",
-    "username": "150885",
-    "password": "150885",
+    "username": "150886",
+    "password": "150886",
     "curriculum":"BSCS",
     "year_level":"4",
     "section":"A"

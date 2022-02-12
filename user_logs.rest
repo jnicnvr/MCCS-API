@@ -7,9 +7,10 @@ GET http://localhost:5000/api/user_logs/Konics
 
 # insert
 ###
-POST  http://localhost:5000/api/user_logs
+POST  http://45.76.152.7:8080/api/user_logs
 Content-Type: application/json
- 
+
 {
-    "project_user": "Konics"
+    "project_user": "Johnny Deff",
+    "activity": "Login"
 }

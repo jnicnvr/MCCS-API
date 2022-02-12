@@ -7,7 +7,7 @@ const express = require('express')
 const app = express()
 
 
-const PORT = process.env.PORT || 80
+const PORT = process.env.PORT || 5000
 const user_routes = require('./routes/users')
 const auth_routes = require('./routes/authentication')
 const students = require('./routes/students')

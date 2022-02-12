@@ -6,7 +6,7 @@ const subjectValidation = (data) => {
             .min(2)
             .required(),
         subject: Joi.string()
-            .min(6)
+            .min(4)
             .required(),
         description: Joi.string()
             .min(6)

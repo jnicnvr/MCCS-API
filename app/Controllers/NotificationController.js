@@ -1,4 +1,4 @@
-const { evaluated_faculty, index, show } = require('../Services/NotificationService')
+const { evaluated_faculty, index, show, ny_evaluated, evaluating_faculty } = require('../Services/NotificationService')
 const { notificationValidation } = require('../Validations/NotificationValidation')
 
 module.exports = {
@@ -16,9 +16,11 @@ module.exports = {
                     message: "Database connection errror"
                 });
             }
-            return res.status(200).json({
-                data: results
-            });
+            if (!results) {
+                return res.status(200).json({ success: false });
+            } else {
+                return res.status(200).json({ success: true });
+            }
         });
     },
     index: (req, res) => {
@@ -43,6 +45,31 @@ module.exports = {
                 return res.json({
                     message: "Record not Found"
                 });
+            }
+            return res.json(results);
+        });
+    },
+    evaluating_faculty: (req, res) => {
+        const body = req.body;
+        evaluating_faculty(body, (err, results) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            if (!results) {
+                return res.json({
+                    message: "Record not Found"
+                });
+            }
+            results.map(x => x.success = true)
+            return res.json(results);
+        });
+    },
+    ny_evaluated: (req, res) => {
+        ny_evaluated((err, results) => {
+            if (err) {
+                console.log(err);
+                return;
             }
             return res.json({
                 data: results

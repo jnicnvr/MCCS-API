@@ -1,10 +1,10 @@
 const { create, index, show, update, destroy } = require('../Services/StudentService')
-const { validation } = require('../../config/validation')
+const { registerValidation } = require('../../config/validation')
 
 module.exports = {
     create: (req, res) => {
         const body = req.body;
-        const { error } = validation(req.body);
+        const { error } = registerValidation(req.body);
         if (error) {
             return res.status(400).send(error.details[0].message)
         }
@@ -16,9 +16,12 @@ module.exports = {
                     message: "Database connection errror"
                 });
             }
-            return res.status(200).json({
-                data: results
-            });
+            if (!results) {
+                return res.status(400).json({success:false});
+
+            } else {
+                return res.status(200).json({success:true});
+            }
         });
     },
     index: (req, res) => {
@@ -52,7 +55,7 @@ module.exports = {
     },
     update: (req, res) => {
         const body = req.body;
-        const id = req.params.id;       
+        const id = req.params.id;
         update(id, body, (err, results) => {
             if (err) {
                 console.log(err);

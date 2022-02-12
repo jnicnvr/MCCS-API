@@ -16,9 +16,7 @@ module.exports = {
                     message: "Database connection errror"
                 });
             }
-            return res.status(200).json({
-                data: results
-            });
+            return res.status(200).json({success:true});
         });
     },
     index: (req, res) => {

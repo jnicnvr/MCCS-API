@@ -5,8 +5,11 @@ const adminLogsValidation = (data) => {
         name: Joi.string()
             .min(6)
             .required(),
-        password: Joi.string()
-            .min(6)
+        activity: Joi.string()
+            .min(3)
+            .required(),
+        user_level: Joi.string()
+            .min(3)
             .required(),
     })
     return schema.validate(data)
