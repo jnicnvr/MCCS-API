@@ -16,9 +16,7 @@ module.exports = {
                     message: "Database connection errror"
                 });
             }
-            return res.status(200).json({
-                data: results
-            });
+            return res.status(200).json({ success: true });
         });
     },
     index: (req, res) => {
@@ -27,9 +25,7 @@ module.exports = {
                 console.log(err);
                 return;
             }
-            return res.json({
-                data: results
-            });
+            return res.json(results);
         });
     },
     show: (req, res) => {
@@ -44,14 +40,12 @@ module.exports = {
                     message: "Record not Found"
                 });
             }
-            return res.json({
-                data: results
-            });
+            return res.json(results);
         });
     },
     show_status: (req, res) => {
         const id = req.params.id;
-        console.log('show_status',id)
+        console.log('show_status', id)
         show_status(id, (err, [results]) => {
             if (err) {
                 console.log(err);
@@ -68,14 +62,15 @@ module.exports = {
     },
     update: (req, res) => {
         const body = req.body;
-        const id = req.params.id;       
+        const id = req.params.id;
         update(id, body, (err, results) => {
             if (err) {
                 console.log(err);
                 return;
             }
             return res.json({
-                message: "Updated successfully"
+                message: "Updated successfully",
+                success: true,
             });
         });
     },
@@ -87,7 +82,8 @@ module.exports = {
                 return;
             }
             return res.json({
-                message: "Deleted successfully"
+                message: "Deleted successfully",
+                success: true,
             });
         });
     }

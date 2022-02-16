@@ -1,0 +1,16 @@
+# index
+GET http://localhost:5000/api/feedback
+
+# show
+###
+GET http://localhost:5000/api/feedback/GREAT
+
+
+# insert
+###
+POST  http://localhost:5000/api/feedback
+Content-Type: application/json
+ 
+{     
+    "type": "GREAT"
+}

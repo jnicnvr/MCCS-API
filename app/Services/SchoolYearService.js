@@ -55,13 +55,13 @@ module.exports = {
         );
     },
     update: (id, data, callBack) => {
-        let _query = `UPDATE school_year SET year=?, status=?, isActive=? WHERE year=?`
+        let _query = `UPDATE school_year SET status=?, isActive=?, updated_at= NOW() WHERE year=? AND semester=?`
         pool.query(_query,
             [
-                data.year,
                 data.status,
                 data.isActive,
-                id
+                id,
+                data.semester,
             ],
             (error, results, fields) => {
                 if (error) {

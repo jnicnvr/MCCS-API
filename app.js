@@ -21,6 +21,7 @@ const evaluation_restriction = require('./routes/evaluation_restriction')
 const rating = require('./routes/rating')
 const notification = require('./routes/notification')
 const comment = require('./routes/comment')
+const feedback = require('./routes/feedback')
 
 
 app.use(express.json()) // convert incomming request to json
@@ -42,6 +43,7 @@ app.use('/api', rating)
 app.use('/api', notification)
 app.use('/api', comment)
 app.use('/api', user_logs)
+app.use('/api', feedback)
 
 //404 Handler
 app.use(function (req, res, next) {
