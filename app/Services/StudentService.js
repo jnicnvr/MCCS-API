@@ -20,7 +20,7 @@ module.exports = {
                 data.year_level,
                 data.section,
                 data.username,
-                data.password,               
+                data.password,
             ],
             (err, results, fields) => {
                 if (err) {
@@ -42,6 +42,17 @@ module.exports = {
             }
         );
     },
+    student_total: callBack => {
+        let _query = `SELECT (SELECT COUNT(*) FROM students) as students, COUNT(*) as evaluated, ((SELECT COUNT(*) FROM students) -  COUNT(*)) as total FROM evaluate_faculty`
+        pool.query(_query,
+            (error, results, fields) => {
+                if (error) {
+                    callBack(error);
+                }
+                return callBack(null, results);
+            }
+        );
+    },
     show: (id, callBack) => {
         let _query = `SELECT s.SID, CONCAT(Fname, Lname) AS student_name, s.Age, s.Sex, c._class, s.username, s.password, DATE_FORMAT(s.created_at, '%W %M %e %Y') AS created_at FROM students AS s 
         JOIN classes AS c ON s.class_id = c.id  
@@ -51,7 +62,7 @@ module.exports = {
             (error, results, fields) => {
                 if (error) {
                     callBack(error);
-                }              
+                }
                 return callBack(null, results[0]);
             }
         );

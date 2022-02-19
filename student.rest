@@ -1,6 +1,9 @@
 # index
 GET http://localhost:5000/api/student
 
+###
+GET http://localhost:5000/api/student_total
+
 # show
 ###
 GET http://localhost:5000/api/student/186969

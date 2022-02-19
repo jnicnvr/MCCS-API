@@ -1,4 +1,4 @@
-const { create, index, show, update, destroy } = require('../Services/StudentService')
+const { create, index, show, update, destroy, student_total } = require('../Services/StudentService')
 const { registerValidation } = require('../../config/validation')
 
 module.exports = {
@@ -17,10 +17,10 @@ module.exports = {
                 });
             }
             if (!results) {
-                return res.status(400).json({success:false});
+                return res.status(400).json({ success: false });
 
             } else {
-                return res.status(200).json({success:true});
+                return res.status(200).json({ success: true });
             }
         });
     },
@@ -33,6 +33,15 @@ module.exports = {
             return res.json({
                 data: results
             });
+        });
+    },
+    student_total: (req, res) => {
+        student_total((err, results) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            return res.json(results);
         });
     },
     show: (req, res) => {
